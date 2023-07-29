@@ -4,16 +4,29 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -53,7 +66,12 @@ export const data = {
 };
 
 const App = () => {
-  return <Bar options={options} data={data} />;
+  return (
+    <>
+      <Bar options={options} data={data} />
+      <Line options={options} data={data} />
+    </>
+  );
 };
 
 export default App;
